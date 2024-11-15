@@ -2,9 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "developer" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "developer" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -23,3 +23,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish Test Results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: '**/TestResults/*.trx'
+      
