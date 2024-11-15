@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --logger trx
+      run: dotnet build --no-restore --logger "trx;LogFileName=build-results.trx"
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish Test Results
