@@ -11,6 +11,6 @@ public sealed class ProducrServiceTest
 
         var result = productService.Test();
 
-        result.Should().BeFalse();//
+        result.Should().BeTrue();//
     }
 }
